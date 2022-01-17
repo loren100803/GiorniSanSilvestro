@@ -4,4 +4,6 @@ comment1.params=
 comment1.target=giorniSS()
 comment2.params=
 comment2.target=int\ getGiorni()
-numComments=3
+comment3.params=
+comment3.target=java.lang.String\ getStagione()
+numComments=4

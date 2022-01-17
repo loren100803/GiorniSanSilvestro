@@ -10,6 +10,8 @@
 <H3>Giorni a San Silvestro: 
 <jsp:getProperty name="SanSilvestro" property="giorni"/>
 </H3>
+<H3>Stagione: 
+<jsp:getProperty name="SanSilvestro" property="stagione"/>
 </CENTER>
 <HR>
 </BODY>

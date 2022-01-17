@@ -8,18 +8,20 @@ public class giorniSS implements java.io.Serializable
   private int giorni;  
   private String dateStr1;
   private String dateSS;
+  private String stagione;
   public giorniSS() {
     giorni = 0;
-    dateStr1 = "2022-01-17";
+    dateStr1 = "2022-08-10";
     dateSS = "2022-12-31"; //data San Silvestro
+    stagione=" ";
   }
   public int getGiorni() throws Exception {
     
                 // input string date format
-		String DATE_FORAT = "yyyy-MM-dd";
+		String DATE_FORMAT = "yyyy-MM-dd";
 		
 		// creating simple date formatter using string format
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORAT);
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);
 		
 		
 		// converting string dateStr1 to date using simpledateformat.
@@ -49,4 +51,42 @@ public class giorniSS implements java.io.Serializable
 
                 return giorni;
   }
+  public String getStagione() throws Exception {
+    
+                // input string date format
+		String DATE_FORMAT = "MM-dd";
+		
+		// creating simple date formatter using string format
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);
+		
+		SimpleDateFormat f=new SimpleDateFormat("MM-dd");
+                
+        
+        try
+        {
+            dateStr1=dateStr1.substring(5);
+            Date date=f.parse(dateStr1);
+            
+                if(date.after(f.parse("04-21")) && date.before(f.parse("06-21"))){
+                    stagione="Primavera";
+                }
+                else if(date.after(f.parse("06-20")) && (date.before(f.parse("09-23"))))
+                {
+                    stagione="Estate";
+                }
+                else if(date.after(f.parse("09-22")) && date.before(f.parse("12-22")))
+                {
+                    stagione="Autunno";
+                }
+                else stagione="Inverno";
+        }catch(Exception e){
+            System.out.println("Invalid month/date "+e);
+        }
+        
+        return stagione;
+        
+    }
+
+
+  
 }
